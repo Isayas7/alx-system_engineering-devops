@@ -1,0 +1,2 @@
+#!/bin/bash
+ls -aQp | sed '$!s/$/, /; $s/$/\n/' | LC_ALL=C sed -e 's/\(.*\)\///g' -e '/^\.$/d' -e '/^\.\.$/d' | LC_ALL=C sort -df | LC_ALL=C sed -e 's/$/,/' -e 's/^/,/' -e '1s/^,//' -e '$s/,$/\n/'
